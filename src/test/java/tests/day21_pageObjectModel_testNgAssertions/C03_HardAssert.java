@@ -4,8 +4,8 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
-import tests.utilities.ConfigReader;
-import tests.utilities.Driver;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class C03_HardAssert {
 

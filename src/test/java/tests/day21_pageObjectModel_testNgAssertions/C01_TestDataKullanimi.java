@@ -3,9 +3,9 @@ package tests.day21_pageObjectModel_testNgAssertions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
-import tests.utilities.ConfigReader;
-import tests.utilities.Driver;
-import tests.utilities.ReusableMethods;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class C01_TestDataKullanimi {
 

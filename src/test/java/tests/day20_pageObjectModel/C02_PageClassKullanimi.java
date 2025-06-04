@@ -1,13 +1,10 @@
 package tests.day20_pageObjectModel;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.utilities.Driver;
+import utilities.Driver;
 import pages.TestotomasyonuPage;
-import java.util.List;
 
 
 public class C02_PageClassKullanimi {

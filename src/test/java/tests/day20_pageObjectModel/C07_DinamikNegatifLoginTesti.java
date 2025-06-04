@@ -3,8 +3,8 @@ package tests.day20_pageObjectModel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
-import tests.utilities.ConfigReader;
-import tests.utilities.Driver;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class C07_DinamikNegatifLoginTesti {
 

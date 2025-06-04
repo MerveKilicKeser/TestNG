@@ -1,7 +1,7 @@
 package tests.day20_pageObjectModel;
 
 import org.testng.annotations.Test;
-import tests.utilities.ConfigReader;
+import utilities.ConfigReader;
 
 public class C06_ConfigReaderKullanimi {
     @Test

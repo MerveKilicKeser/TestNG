@@ -4,8 +4,8 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.TestotomasyonuPage;
-import tests.utilities.ConfigReader;
-import tests.utilities.Driver;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class C04_SoftAssertion {
      /*
