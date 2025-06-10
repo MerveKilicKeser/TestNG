@@ -9,56 +9,58 @@ import pages.TestotomasyonuPage;
 
 public class C02_PageClassKullanimi {
 
-    @Test
-    public void aramaTesti(){
-        // 1. Testotomasyonu anasayfaya gidip,
-        // url'in testotomasyonu icerdigini test edin
 
-        Driver.getDriver().get("https://www.testotomasyonu.com");
+        @Test
+        public void aramaTesti(){
+            // 1. Testotomasyonu anasayfaya gidip,
+            // url'in testotomasyonu icerdigini test edin
 
-        String expectedUrlIcerik = "testotomasyonu";
-        String actualUrl = Driver.getDriver().getCurrentUrl();
+            Driver.getDriver().get("https://www.testotomasyonu.com");
 
-        Assert.assertTrue(actualUrl.contains(expectedUrlIcerik));
+            String expectedUrlIcerik = "testotomasyonu";
+            String actualUrl = Driver.getDriver().getCurrentUrl();
 
-        // 2. phone icin arama yapip, arama sonucunda urun bulunabildigini test edin
+            Assert.assertTrue(actualUrl.contains(expectedUrlIcerik));
 
-        // phone icin arama yapin
-        TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
-        testotomasyonuPage.aramaKutusu.sendKeys("phone" + Keys.ENTER);
+            // 2. phone icin arama yapip, arama sonucunda urun bulunabildigini test edin
 
-        // arama sonucunda urun bulunabildigini test edin
+            // phone icin arama yapin
+            TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+            testotomasyonuPage.aramaKutusu.sendKeys("phone" + Keys.ENTER);
 
-        String unexpectedSonucYazisi = "0 Products Found";
-        String actualSonucYazisi = testotomasyonuPage.aramaSonucYaziElementi.getText();
+            // arama sonucunda urun bulunabildigini test edin
 
-        Assert.assertNotEquals(actualSonucYazisi,unexpectedSonucYazisi);
+            String unexpectedSonucYazisi = "0 Products Found";
+            String actualSonucYazisi = testotomasyonuPage.aramaSonucYaziElementi.getText();
 
-        // 3. arama sonucunda 4 urun bulunabildigini test edin
+            Assert.assertNotEquals(actualSonucYazisi,unexpectedSonucYazisi);
 
-        int expectedUrunSayisi = 4;
-        int actualUrunSayisi = testotomasyonuPage.bulunanUrunElementleriList
-                .size();
-        Assert.assertEquals(actualUrunSayisi,expectedUrunSayisi);
+            // 3. arama sonucunda 4 urun bulunabildigini test edin
 
-
-
-        // 4. ilk urunu tiklayip,
-        testotomasyonuPage.bulunanUrunElementleriList
-                .get(0)
-                .click();
-
-        //    acilan sayfadaki urun isminde
-        //    case sensitive olmadan phone bulundugunu test edin
+            int expectedUrunSayisi = 4;
+            int actualUrunSayisi = testotomasyonuPage.bulunanUrunElementleriList
+                    .size();
+            Assert.assertEquals(actualUrunSayisi,expectedUrunSayisi);
 
 
-        String expectedIsimIcerik = "phone";
-        String actualIsim = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
-                .getText();
 
-        Assert.assertTrue(actualIsim.contains(expectedIsimIcerik));
+            // 4. ilk urunu tiklayip,
+            testotomasyonuPage.bulunanUrunElementleriList
+                    .get(0)
+                    .click();
 
-        // sayfayi kapatin
-        Driver.quitDriver();
+            //    acilan sayfadaki urun isminde
+            //    case sensitive olmadan phone bulundugunu test edin
+
+
+            String expectedIsimIcerik = "phone";
+            String actualIsim = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
+                    .getText()
+                    .toLowerCase();
+
+            Assert.assertTrue(actualIsim.contains(expectedIsimIcerik));
+
+            // sayfayi kapatin
+            Driver.quitDriver();
     }
 }

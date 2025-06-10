@@ -23,11 +23,12 @@ public class C04_SoftAssertion {
     public void detayliAramaTesti(){
 
 
+
         // 1. Testotomasyonu anasayfaya gidip, url'in testotomasyonu icerdigini test edin
 
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
 
-        String expectedUrlIcerik = "testotomasyonu111";
+        String expectedUrlIcerik = "testotomasyonu";
         String actualUrl = Driver.getDriver().getCurrentUrl();
 
         SoftAssert softAssert = new SoftAssert();
@@ -46,7 +47,7 @@ public class C04_SoftAssertion {
         String unExpectedSonucYazisi = ConfigReader.getProperty("toUnExpectedSonucYazisi");
         String actualSonucYazisi = testotomasyonuPage.aramaSonucYaziElementi.getText();
 
-        softAssert.assertEquals(actualSonucYazisi,unExpectedSonucYazisi,"aranacakKelime aratildiginda urun bulunamadi");
+        softAssert.assertNotEquals(actualSonucYazisi,unExpectedSonucYazisi,"aranacakKelime aratildiginda urun bulunamadi");
 
         // 3. ilk urunu tiklayip,
         testotomasyonuPage.bulunanUrunElementleriList
@@ -56,7 +57,7 @@ public class C04_SoftAssertion {
         //    acilan sayfadaki urun isminde
         //    case sensitive olmadan aranacakKelime bulundugunu test edin
 
-        String expectedIsimIcerik = ConfigReader.getProperty("toAranacakKelime")+111;
+        String expectedIsimIcerik = ConfigReader.getProperty("toAranacakKelime");
         String actualIsim = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
                 .getText()
                 .toLowerCase();
